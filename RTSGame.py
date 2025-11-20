@@ -149,6 +149,7 @@ def main() -> None:
 
         pygameHolder.screen.blit(pygame.transform.scale_by(think.renderedTileLayers[i], j + 1), (100, 100))
         pygameHolder.screen.blit(pygame.transform.scale_by(think.topViews[i], j + 1), (500, 100))
+        pygameHolder.screen.blit(pygame.transform.scale_by(think.Bla, j + 1), (0, 0))
         pygame.display.flip()
         pygameHolder.Tick()
     

@@ -49,15 +49,38 @@
       ],
       "trigger_zones": {
         "spawn_1": {
-            "id": "spawn_1",
-            "tags": [
-              "spawn_zone"
-            ],
-            "area": [0, 0, 0, 1, 1, 1],
-            "conditions": [],
-            "effects": []
+          "id": "spawn_1",
+          "type": "aabb3i",
+          "tags": [
+            "spawn_zone"
+          ],
+          "area": [0, 0, 0, 1, 1, 1],
+          "conditions": [],
+          "effects": []
         }
       }
+    }
+  },
+  "triggers": {
+    "on_start": {
+      "events": [
+        "map_setup"
+      ],
+      "predicate": {
+        "type": "bool",
+        "value": true
+      },
+      "effects": [
+        {
+          "type": "spawn_unit",
+          "unit_spawn_data": {
+
+          },
+          "modifiers": [
+            
+          ]
+        }
+      ]
     }
   }
 }

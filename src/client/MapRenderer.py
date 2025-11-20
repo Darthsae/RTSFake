@@ -46,6 +46,7 @@ class MapRenderer:
         self.mapData: MapData = levelData.maps[a_map.mapID]
         self.renderedTileLayers: list[Surface] = [Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA) for _ in range(self.mapData.height)]
         self.topViews: list[Surface] = [Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA) for _ in range(self.mapData.height)]
+        self.Bla: Surface = Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA)
 
     def RenderFullMap(self, a_game: Game) -> None:
         [layer.fill(Constants.EMPTY) for layer in self.renderedTileLayers]
@@ -77,8 +78,10 @@ class MapRenderer:
 
         for i, ent in enumerate(reversed(layers)):
             for uni in ent:
-                a_surface.fill((0, 200, 158), (uni.position.x * Constants.TILE_SIZE, uni.position.y * Constants.TILE_SIZE, Constants.TILE_SIZE * 0.2, Constants.TILE_SIZE * 0.2))
-            a_surface.blit(self.renderedTileLayers[-i])
+                self.Bla.fill((0, 200, 158, 125), (uni.position.x * Constants.TILE_SIZE, uni.position.y * Constants.TILE_SIZE, Constants.TILE_SIZE * 0.2, Constants.TILE_SIZE * 0.2))
+            self.Bla.blit(self.renderedTileLayers[-i])
+            for uni in ent:
+                self.Bla.fill((0, 200, 158, 125), (uni.position.x * Constants.TILE_SIZE, uni.position.y * Constants.TILE_SIZE, Constants.TILE_SIZE * 0.2, Constants.TILE_SIZE * 0.2))
             if i >= a_level:
                 break
 
