@@ -1,0 +1,30 @@
+{
+  "base_game.mod.name": "Base Game",
+  "base_game.mod.description": "The Base Game content.",
+
+  "base_game.damage_type.piercing.name": "Piercing",
+  "base_game.damage_type.piercing.description": "Pierces the thinnest of armor.",
+
+  "base_game.tech.category.light_industry.name": "Light Industry",
+  "base_game.tech.category.light_industry.description": "Industry that has minimal requirements when it comes to equipment.",
+
+  "base_game.unit_type.worker_drone.name": "Worker Drone",
+  "base_game.unit_type.worker_drone.description": "A simple worker drone to gather resources.",
+
+  "base_game.map.test_map.level.name": "Test Map",
+  "base_game.map.test_map.level.description": "A simple test map.",
+  "base_game.map.test_map.maps.map_000.name": "Map 000",
+
+  "base_game.tile_type.ground_tile.name": "Ground Tile",
+  "base_game.tile_type.ground_tile.description": "A standard ground tile.",
+  "base_game.tile_type.flesh_tile.name": "Flesh Tile",
+  "base_game.tile_type.flesh_tile.description": "A fleshy outgrowth, solid enough to stand on and take cover behind.",
+  "base_game.tile_type.steel_plating_tile.name": "Steel Plating Tile",
+  "base_game.tile_type.steel_plating_tile.description": "A solid steel bulkhead.",
+
+  "base_game.player_resource.metal.name": "Metal",
+  "base_game.player_resource.metal.description": "A basic resource.",
+
+  "base_game.faction.perdue_industries.name": "Perdue Industries",
+  "base_game.faction.perdue_industries.description": "The corporation."
+}

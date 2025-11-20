@@ -1,0 +1,6 @@
+{
+  "stat_id": "base_game:life",
+  "stat_name": "base_game.stat_type.life.name",
+  "stat_description": "base_game.stat_type.life.description",
+  "stat_icon": "base_game:units/stats/life_icon"
+}

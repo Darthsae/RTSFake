@@ -1,0 +1,9 @@
+{
+  "id": "base_game:flesh_tile",
+  "name": "base_game.tile_type.flesh_tile.name",
+  "texture": "base_game:tile_types/flesh_tile",
+  "description": "base_game.tile_type.flesh_tile.description",
+  "tags": [
+    "solid"
+  ]
+}

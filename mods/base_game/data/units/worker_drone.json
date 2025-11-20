@@ -1,0 +1,19 @@
+{
+  "id": "base_game:worker_drone",
+  "name": "base_game.unit_type.worker_drone.name",
+  "description": "base_game.unit_type.worker_drone.description",
+  "faction": "base_game:perdue_industries",
+  "tags": [
+    "worker"
+  ],
+  "stats": {
+    "life": {
+      "stat_id": "base_game:life",
+      "stat_min": 0,
+      "stat_cur": 75,
+      "stat_max": 75
+    }
+  },
+  "resources": {},
+  "attributes": {}
+}

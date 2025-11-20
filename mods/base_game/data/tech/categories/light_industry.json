@@ -1,0 +1,6 @@
+{
+  "id": "base_game:light_industry",
+  "name": "base_game.tech.category.light_industry.name",
+  "description": "base_game.tech.category.light_industry.description",
+  "icon": "base_game:tech/categories/light_industry_icon"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "base_game:steel_plating_tile",
+  "name": "base_game.tile_type.steel_plating_tile.name",
+  "texture": "base_game:tile_types/steel_plating_tile",
+  "description": "base_game.tile_type.steel_plating_tile.description",
+  "tags": [
+    "solid"
+  ]
+}

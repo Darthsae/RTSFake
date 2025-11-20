@@ -1,0 +1,9 @@
+{
+  "id": "base_game:ground_tile",
+  "name": "base_game.tile_type.ground_tile.name",
+  "texture": "base_game:tile_types/ground_tile",
+  "description": "base_game.tile_type.ground_tile.description",
+  "tags": [
+    "solid"
+  ]
+}

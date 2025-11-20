@@ -1,0 +1,15 @@
+{
+  "id": "base_game:perdue_industries",
+  "name": "base_game.faction.perdue_industries.name",
+  "description": "base_game.faction.perdue_industries.description",
+  "icon": "base_game:factions/perdue_industries_icon",
+  "resources": [
+    {
+      "resource_id": "base_game:metal",
+      "resource_min": 0,
+      "resource_cur": 150,
+      "resource_max": 1000000
+    }
+  ],
+  "tech_research": []
+}

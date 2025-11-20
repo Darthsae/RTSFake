@@ -1,0 +1,7 @@
+{
+  
+  "id": "base_game:metal",
+  "name": "base_game.player_resource.metal.name",
+  "description": "base_game.player_resource.metal.description",
+  "icon": "base_game:players/resources/metal_icon"
+}

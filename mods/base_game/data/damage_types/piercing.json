@@ -1,0 +1,6 @@
+{
+  "id": "base_game:piercing",
+  "name": "base_game.damage_type.piercing.name",
+  "description": "base_game.damage_type.piercing.description",
+  "icon": "base_game:damage_types/piercing_icon"
+}
