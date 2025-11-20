@@ -47,6 +47,8 @@ class MapRenderer:
         self.renderedTileLayers: list[Surface] = [Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA) for _ in range(self.mapData.height)]
         self.topViews: list[Surface] = [Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA) for _ in range(self.mapData.height)]
         self.Bla: Surface = Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA)
+        self.fog: Surface = Surface((self.mapData.width * Constants.TILE_SIZE, self.mapData.length * Constants.TILE_SIZE), pygame.SRCALPHA)
+        self.fog.fill((64, 64, 64, 70))
 
     def RenderFullMap(self, a_game: Game) -> None:
         [layer.fill(Constants.EMPTY) for layer in self.renderedTileLayers]
@@ -68,7 +70,7 @@ class MapRenderer:
     
     def RenderTopViews(self, a_game: Game) -> None:
         [layer.fill(Constants.EMPTY) for layer in self.topViews]
-        [self.topViews[-z].blits([(layer, (0, 0)) for layer in islice(reversed(self.renderedTileLayers), z + 1)]) for z in range(self.mapData.height)]
+        [self.topViews[-(z+1)].blits([(layer, (0, 0)) for layer in islice(reversed(self.renderedTileLayers), z + 1)]) for z in range(self.mapData.height)]
 
     def RenderTheThing(self, a_game: Game, a_surface: Surface, a_level: int) -> None:
         layers: list[list[UnitInstance]] = [
@@ -76,12 +78,14 @@ class MapRenderer:
         ]
         [layers[floor(unit.position.z)].append(unit) for unit in self.map.units]
 
-        for i, ent in enumerate(reversed(layers)):
+        for i, ent in enumerate(layers):
+            self.Bla.blit(self.fog)
             for uni in ent:
                 self.Bla.fill((0, 200, 158, 125), (uni.position.x * Constants.TILE_SIZE, uni.position.y * Constants.TILE_SIZE, Constants.TILE_SIZE * 0.2, Constants.TILE_SIZE * 0.2))
-            self.Bla.blit(self.renderedTileLayers[-i])
+            self.Bla.blit(self.renderedTileLayers[-(i+1)])
             for uni in ent:
                 self.Bla.fill((0, 200, 158, 125), (uni.position.x * Constants.TILE_SIZE, uni.position.y * Constants.TILE_SIZE, Constants.TILE_SIZE * 0.2, Constants.TILE_SIZE * 0.2))
+            
             if i >= a_level:
                 break
 

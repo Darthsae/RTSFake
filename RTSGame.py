@@ -13,6 +13,9 @@ from src.ui import UIManager, UIAnchor, UIBorder, UIElement, UILayer
 from src.game.Game import Game
 from enum import StrEnum, auto
 
+from src.structures.Vec3F import Vec3F
+from src.game.world.unit.UnitInstance import UnitInstance
+
 class Screen(StrEnum):
     MAIN_MENU = auto()
     SETTINGS  = auto()
@@ -92,7 +95,12 @@ def main() -> None:
     for _, mod in game.modManager.mods.items():
         game.LoadModContent(mod)
 
-    think: MapRenderer = MapRenderer(game, Map("base_game:test_map", "base_game:test_map/map_000", []))
+    think: MapRenderer = MapRenderer(game, Map("base_game:test_map", "base_game:test_map/map_000", [
+        UnitInstance("base_game:a", "a", "a", "a", "a", [], {}, {}, {}, Vec3F(4, 7, 1), "base_game:test_map/map_000"),
+        UnitInstance("base_game:a", "a", "a", "a", "a", [], {}, {}, {}, Vec3F(9, 7, 1), "base_game:test_map/map_000"),
+        UnitInstance("base_game:a", "a", "a", "a", "a", [], {}, {}, {}, Vec3F(6, 5, 1), "base_game:test_map/map_000"),
+        UnitInstance("base_game:a", "a", "a", "a", "a", [], {}, {}, {}, Vec3F(3, 6, 2), "base_game:test_map/map_000")
+    ]))
 
     think.RenderFullMap(game)
     i = 0
@@ -147,8 +155,9 @@ def main() -> None:
 
         #print(think.renderedTileLayers[i])
 
-        pygameHolder.screen.blit(pygame.transform.scale_by(think.renderedTileLayers[i], j + 1), (100, 100))
-        pygameHolder.screen.blit(pygame.transform.scale_by(think.topViews[i], j + 1), (500, 100))
+        pygameHolder.screen.blit(pygame.transform.scale_by(think.renderedTileLayers[i], j + 1), (400, 0))
+        pygameHolder.screen.blit(pygame.transform.scale_by(think.topViews[i], j + 1), (800, 0))
+        think.RenderTheThing(game, screen, i)
         pygameHolder.screen.blit(pygame.transform.scale_by(think.Bla, j + 1), (0, 0))
         pygame.display.flip()
         pygameHolder.Tick()

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # fmt: off
 from dataclasses import dataclass
 
