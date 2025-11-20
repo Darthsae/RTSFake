@@ -3,6 +3,7 @@ from __future__ import annotations
 # fmt: off
 
 from itertools import islice
+from math import floor
 from pygame import Surface
 import pygame
 
@@ -68,11 +69,19 @@ class MapRenderer:
         [layer.fill(Constants.EMPTY) for layer in self.topViews]
         [self.topViews[-z].blits([(layer, (0, 0)) for layer in islice(reversed(self.renderedTileLayers), z + 1)]) for z in range(self.mapData.height)]
 
-    def RenderTheThing(self, a_game: Game, a_surface: Surface) -> None:
+    def RenderTheThing(self, a_game: Game, a_surface: Surface, a_level: int) -> None:
         layers: list[list[UnitInstance]] = [
             [] for _ in range(len(self.map.units))
         ]
-        [layers[int(unit.position.z)].append(unit) for unit in self.map.units]
+        [layers[floor(unit.position.z)].append(unit) for unit in self.map.units]
+
+        for i, ent in enumerate(reversed(layers)):
+            for uni in ent:
+                a_surface.fill((0, 200, 158), (uni.position.x * Constants.TILE_SIZE, uni.position.y * Constants.TILE_SIZE, Constants.TILE_SIZE * 0.2, Constants.TILE_SIZE * 0.2))
+            a_surface.blit(self.renderedTileLayers[-i])
+            if i >= a_level:
+                break
+
 
     #def RenderMapAlt(self, a_game: Game) -> None:
     #    self.renderedTiles.fill(Constants.BLACK)
